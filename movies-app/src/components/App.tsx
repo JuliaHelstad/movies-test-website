@@ -31,7 +31,7 @@ const App = () => {
     </div>
     </div>
     <div className={styles.movieList}>
-      {movies && movies.map((movie, key) => <Movie key={key} movie={movie}/>)}
+      {movies && movies.map((movie) => <Movie key={movie.imdbId} movie={movie}/>)}
     </div>
     </>
   );
