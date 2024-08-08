@@ -1,8 +1,6 @@
 import { MovieItem } from '../types/types';
 
 export const GetMoviesBySearch = async (title: string) => {
-  let movieList: MovieItem[] | null = null;
-
   try {
     //TODO: Fix environment variable for key
     const response: any = await fetch(
@@ -20,7 +18,7 @@ export const GetMoviesBySearch = async (title: string) => {
     }
 
     const movieList = result.Search.map((movie: any) => {
-      return ParseMovie(movie);
+      return parseMovie(movie);
     });
 
     return movieList;
@@ -48,7 +46,7 @@ export const GetMovieByTitle = async (title: string) => {
       return null;
     }
 
-    movie = ParseMovie(result);
+    movie = parseMovie(result);
   } catch (error: any) {
     return null;
   }
@@ -56,7 +54,7 @@ export const GetMovieByTitle = async (title: string) => {
   return movie;
 };
 
-const ParseMovie = (data: any): MovieItem => {
+const parseMovie = (data: any): MovieItem => {
   const movie: MovieItem = {
     imdbId: data.imdbID,
     title: data.Title,

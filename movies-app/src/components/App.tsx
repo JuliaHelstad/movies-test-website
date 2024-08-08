@@ -30,9 +30,12 @@ const App = () => {
       <input className={styles.searchField} onChange={(e) => setSearch(e.target.value)}></input>
     </div>
     </div>
-    <div className={styles.movieList}>
-      {movies && movies.map((movie) => <Movie key={movie.imdbId} movie={movie}/>)}
-    </div>
+    {movies && <div className={styles.movieList}>
+      {movies.map((movie) => <Movie key={movie.imdbId} movie={movie}/>)}
+    </div>}
+    {!movies && <div className={styles.noMovies}>
+      <p>No movies found <br/> Make a new search!</p>
+    </div>}
     </>
   );
 };

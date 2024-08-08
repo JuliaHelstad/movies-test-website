@@ -10,19 +10,21 @@ const Movie = ({ movie }: { movie: MovieItem }) => {
 
   useEffect(() => {
     async function fetchExpandedMovie() {
-      let fetchedMovie = await GetMovieByTitle(movie.title);
-      if (fetchedMovie) {
-        setMovieInfo(fetchedMovie);
+      if (movie.actors === undefined) {
+        let fetchedMovie = await GetMovieByTitle(movie.title);
+        if (fetchedMovie) {
+          setMovieInfo(fetchedMovie);
+        }
       }
     }
     fetchExpandedMovie();
-  }, [expanded]);
+  }, [expanded, movie.title, movie.actors]);
 
   return (
     <div className={styles.container}>
       <div className={styles.shortInfoContainer}>
         <img
-          alt={'Image of movie'}
+          alt={'Movie cover'}
           src={movieInfo.image}
           className={styles.image}
         />
@@ -33,17 +35,20 @@ const Movie = ({ movie }: { movie: MovieItem }) => {
           </p>
         </div>
 
-        <div className={styles.buttons}>
+        <div
+          className={styles.buttons}
+          onClick={() => setExpanded(!expanded)}
+        >
           {!expanded && (
             <img
-              onClick={() => setExpanded(!expanded)}
+              alt={'Expand arrow'}
               src={arrowDown}
               className={styles.arrow}
             />
           )}
           {expanded && (
             <img
-              onClick={() => setExpanded(!expanded)}
+              alt={'Expand arrow'}
               src={arrowDown}
               className={styles.arrowRotate}
             />
