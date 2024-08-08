@@ -18,12 +18,17 @@ const App = () => {
       }
     }
     fetchMovies();
-  }, [search]);
+  }, [search, setSearch]);
 
   return (
     <>
     <div className={styles.menu}>
-      <input onChange={(e) => setSearch(e.target.value)}></input>
+      <h1 className={styles.header1}>Movies what what?</h1>
+      <h2 className={styles.header2}>Your favorite place to find movies</h2>
+    <div className={styles.search}>
+      <p className={styles.searchText}>Search for your movie here:</p>
+      <input className={styles.searchField} onChange={(e) => setSearch(e.target.value)}></input>
+    </div>
     </div>
     <div className={styles.movieList}>
       {movies && movies.map((movie, key) => <Movie key={key} movie={movie}/>)}

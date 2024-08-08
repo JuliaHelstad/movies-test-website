@@ -1,24 +1,49 @@
 .menu {
   background-color: rgb(94, 62, 107);
   padding: 20px;
+}
+
+.search {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .title {
   font-style: italic;
 }
 
+.headers {
+  width: 100%;
+}
+
+.header1 {
+  color: rgb(235, 223, 240);
+}
+
+.header2 {
+  color: rgb(235, 223, 240);
+  font-style: italic;
+}
+
+.searchText {
+  color: rgb(235, 223, 240);
+  margin-left: 30%;
+  margin-top: 6%;
+  padding-right: -2px;
+}
+
 .searchField {
   font-size: 10px;
-  margin-left: 50%;
-  margin-top: 4%;
+  margin-left: 2%;
+  margin-top: 5.5%;
   border: 1px solid black;
-  padding: 6px;
-  border-radius: 30%;
-  background-color: white;
+  padding: 4px;
+  height: 20px;
+  border-radius: 5%;
+  background-color: rgb(210, 192, 218);
 }
 
 .movieList {
-  margin-left: 40%;
+  margin-left: 21%;
 }

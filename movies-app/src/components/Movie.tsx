@@ -20,36 +20,54 @@ const Movie = ({ movie }: { movie: MovieItem }) => {
 
   return (
     <div className={styles.container}>
-      <img
-        alt={'Image of movie'}
-        src={movieInfo.image}
-        className={styles.image}
-      />
-      <div className={styles.shortTextContainer}>
-        <p className={styles.title}>{movieInfo.title}</p>
-        <p className={styles.year}>{movieInfo.year}</p>
+      <div className={styles.shortInfoContainer}>
+        <img
+          alt={'Image of movie'}
+          src={movieInfo.image}
+          className={styles.image}
+        />
+        <div className={styles.shortTextContainer}>
+          <p className={styles.title}>{movieInfo.title}</p>
+          <p className={styles.year}>
+            What year? <br /> {movieInfo.year}
+          </p>
+        </div>
+
+        <div className={styles.buttons}>
+          {!expanded && (
+            <img
+              onClick={() => setExpanded(!expanded)}
+              src={arrowDown}
+              className={styles.arrow}
+            />
+          )}
+          {expanded && (
+            <img
+              onClick={() => setExpanded(!expanded)}
+              src={arrowDown}
+              className={styles.arrowRotate}
+            />
+          )}
+        </div>
       </div>
       {expanded && (
-        <div className={styles.longTextContainer}>
-          <p>{movieInfo.plot}</p>
+        <div className={styles.moreInfoContainer}>
+          <p className={styles.moreInfo}>
+            What about? <br /> {movieInfo.plot}
+          </p>
+          <p className={styles.moreInfo}>
+            What actors? <br />
+            {movieInfo.actors}
+          </p>
+          <p className={styles.moreInfo}>
+            What they speak? <br /> {movieInfo.language}
+          </p>
+          <p className={styles.moreInfo}>
+            What director? <br />
+            {movieInfo.director}
+          </p>
         </div>
       )}
-      <div className={styles.buttons}>
-        {!expanded && (
-          <img
-            onClick={() => setExpanded(!expanded)}
-            src={arrowDown}
-            className={styles.arrow}
-          />
-        )}
-        {expanded && (
-          <img
-            onClick={() => setExpanded(!expanded)}
-            src={arrowDown}
-            className={styles.arrowRotate}
-          />
-        )}
-      </div>
     </div>
   );
 };

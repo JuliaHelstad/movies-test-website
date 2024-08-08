@@ -1,23 +1,34 @@
 .container {
   padding: 10px;
-  width: 40%;
+  width: 70%;
   margin-top: 20px;
+  background-color: rgb(210, 192, 218);
+  border-radius: 25px;
+}
+
+.shortInfoContainer {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  background-color: rgb(210, 192, 218);
-  border-radius: 30px;
 }
 
 .shortTextContainer {
   width: 100%;
   font-size: 12px;
-  margin-left: 10px;
+  margin-left: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
   font-family: Sans-serif;
   align-items: end;
 }
 
-.longTextContainer {
+.moreInfoContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.moreInfo {
 }
 
 .bold {
@@ -32,10 +43,12 @@
 }
 
 .image {
-  width: 20%;
+  width: 25%;
   border: rgb(44, 42, 42) 1px solid;
   border-radius: 10%;
   box-shadow: 2px 2px lightgrey;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .year {
