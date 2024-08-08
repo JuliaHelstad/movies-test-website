@@ -1,0 +1,65 @@
+.container {
+  padding: 10px;
+  width: 40%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: rgb(210, 192, 218);
+  border-radius: 30px;
+}
+
+.shortTextContainer {
+  width: 100%;
+  font-size: 12px;
+  margin-left: 10px;
+  font-family: Sans-serif;
+  align-items: end;
+}
+
+.longTextContainer {
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 7%;
+  margin-left: 10%;
+}
+
+.image {
+  width: 20%;
+  border: rgb(44, 42, 42) 1px solid;
+  border-radius: 10%;
+  box-shadow: 2px 2px lightgrey;
+}
+
+.year {
+  font-weight: bold;
+  margin-bottom: 5%;
+  margin-left: 10%;
+}
+
+.plot {
+  margin-top: 5px;
+}
+
+.arrow {
+  width: 10px;
+}
+
+.arrowRotate {
+  width: 10px;
+  transform: rotate(180deg);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 5px;
+}

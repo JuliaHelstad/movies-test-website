@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.2"
+  }
+}

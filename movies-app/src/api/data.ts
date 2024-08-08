@@ -1,34 +1,63 @@
-import { MovieItem } from '../types/types'
+import { MovieItem } from '../types/types';
 
-export const GetMovieByTitle = async (title: string) => {
-  let movieByTitle: MovieItem | null = null;
-  
-const key = process.env.MOVIE_API_KEY;
+export const GetMoviesBySearch = async (title: string) => {
+  let movieList: MovieItem[] | null = null;
+
   try {
-    //TODO: Fix environment variable 
-    const response: any = await fetch(`http://www.omdbapi.com/?t=${title}&apikey=8165db23`)
+    //TODO: Fix environment variable for key
+    const response: any = await fetch(
+      `http://www.omdbapi.com/?s=${title}&apikey=8165db23`
+    );
 
     if (!response.ok) {
-      throw new Error('Network response was not ok')
+      throw new Error('Network response was not ok');
     }
 
-    const result = await response.json()
+    const result = await response.json();
 
-    if (result == null){
-        return null;
+    if (result == null) {
+      return null;
     }
 
-    movieByTitle = ParseMovie(result)
-   
+    const movieList = result.Search.map((movie: any) => {
+      return ParseMovie(movie);
+    });
 
+    return movieList;
   } catch (error: any) {
-    console.error('Error fetching data:', error.message)
+    return null;
   }
-  return movieByTitle
-}
+};
+
+export const GetMovieByTitle = async (title: string) => {
+  let movie: MovieItem | null = null;
+
+  try {
+    //TODO: Fix environment variable for key
+    const response: any = await fetch(
+      `http://www.omdbapi.com/?t=${title}&apikey=8165db23`
+    );
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const result = await response.json();
+
+    if (result == null) {
+      return null;
+    }
+
+    movie = ParseMovie(result);
+  } catch (error: any) {
+    return null;
+  }
+
+  return movie;
+};
 
 const ParseMovie = (data: any): MovieItem => {
-  const product: MovieItem = {
+  const movie: MovieItem = {
     imdbId: data.imdbID,
     title: data.Title,
     year: data.Year,
@@ -37,9 +66,9 @@ const ParseMovie = (data: any): MovieItem => {
     released: data.Released,
     genre: data.Genre,
     director: data.Director,
-    Actors: data.Actors,
+    actors: data.Actors,
     plot: data.Plot,
     language: data.Language,
-  }
-  return product
-}
+  };
+  return movie;
+};
